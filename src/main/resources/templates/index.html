@@ -1,12 +1,31 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        nav a {
+            margin: 0 15px;
+            text-decoration: none;
+            color: #007bff;
+        }
+        nav a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>Welcome to the Petitions App</h1>
-    <a href="/create">Create Petition</a> |
-    <a href="/view">View Petitions</a> |
-    <a href="/search">Search Petitions</a>
+    <nav aria-label="Main Navigation">
+        <a href="/create">Create Petition</a> |
+        <a href="/view">View Petitions</a> |
+        <a href="/search">Search Petitions</a>
+    </nav>
 </body>
 </html>

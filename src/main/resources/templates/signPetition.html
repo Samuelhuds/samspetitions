@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Sign Petition</title>
+</head>
+<body>
+    <h1>Sign Petition: <span th:text="${petition.title}"></span></h1>
+    <form action="/sign" method="post">
+        Name: <input type="text" name="name"><br>
+        Email: <input type="email" name="email"><br>
+        <button type="submit">Sign Petition</button>
+    </form>
+    <a href="/">Back to Home</a>
+</body>
+</

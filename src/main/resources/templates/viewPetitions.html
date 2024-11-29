@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,13 +28,11 @@
 <body>
     <h1>All Petitions</h1>
     <ul>
-        <th:block th:each="petition : ${petitions}">
-            <li>
-                <a th:href="@{/sign(id=${petition.index})}" th:text="${petition.title}"></a>
-            </li>
-        </th:block>
+        <li th:each="petition, iterStat : ${petitions}">
+            <a th:href="@{/sign(id=${iterStat.index})}" th:text="${petition.title}"></a>
+        </li>
     </ul>
-    <p th:if="${petitions.empty}">No petitions available. <a href="/create">Create one now!</a></p>
+    <p th:if="${petitions.isEmpty()}">No petitions available. <a href="/create">Create one now!</a></p>
     <a href="/">Back to Home</a>
 </body>
 </html>

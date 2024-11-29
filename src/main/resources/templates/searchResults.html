@@ -16,17 +16,30 @@
         li {
             margin-bottom: 10px;
         }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <h1>Search Results</h1>
     <ul>
+        <!-- Iterating over petitions list -->
         <th:block th:each="petition : ${petitions}">
             <li>
+                <!-- Make sure the petition has a valid 'index' or 'id' field -->
                 <a th:href="@{/sign(id=${petition.index})}" th:text="${petition.title}"></a>
             </li>
         </th:block>
     </ul>
+    
+    <!-- Display a message if no petitions found -->
+    <p th:if="${petitions.empty}">No petitions found. <a href="/create">Create one now!</a></p>
+
     <a href="/">Back to Home</a>
 </body>
 </html>

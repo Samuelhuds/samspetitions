@@ -1,7 +1,29 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Petitions</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: #007bff;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
     <h1>All Petitions</h1>
@@ -12,6 +34,7 @@
             </li>
         </th:block>
     </ul>
+    <p th:if="${petitions.empty}">No petitions available. <a href="/create">Create one now!</a></p>
     <a href="/">Back to Home</a>
 </body>
 </html>

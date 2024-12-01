@@ -27,18 +27,23 @@
 </head>
 <body>
     <h1>Search Results</h1>
+
+    <!-- Check if there are any petitions in the search results -->
     <ul>
-        <!-- Iterating over petitions list -->
-        <th:block th:each="petition : ${petitions}">
-            <li>
-                <!-- Make sure the petition has a valid 'index' or 'id' field -->
-                <a th:href="@{/sign(id=${petition.index})}" th:text="${petition.title}"></a>
-            </li>
+        <th:block th:if="${not #lists.isEmpty(petitions)}">
+            <th:block th:each="petition, iterStat : ${petitions}">
+                <li>
+                    <!-- Use the iteration status index to pass the correct ID -->
+                    <a th:href="@{/sign(id=${iterStat.index})}" th:text="${petition.title}"></a>
+                </li>
+            </th:block>
+        </th:block>
+
+        <!-- If no results were found, show a message -->
+        <th:block th:if="${#lists.isEmpty(petitions)}">
+            <li>No petitions found for your search. <a href="/create">Create one now!</a></li>
         </th:block>
     </ul>
-    
-    <!-- Display a message if no petitions found -->
-    <p th:if="${petitions.empty}">No petitions found. <a href="/create">Create one now!</a></p>
 
     <a href="/">Back to Home</a>
 </body>
